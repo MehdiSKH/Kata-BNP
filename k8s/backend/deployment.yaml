@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: backend-deployment
+  name: my-app-backend
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
-      app: backend
+      app: my-app-backend
   template:
     metadata:
       labels:
-        app: backend
+        app: my-app-backend
     spec:
       containers:
-        - name: backend
-          image: backend-app:latest
+        - name: my-app-backend
+          image: my-backend-image:v1  # Remplacer par ton image
           ports:
             - containerPort: 8080
