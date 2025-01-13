@@ -1,9 +1,12 @@
 # Kata-BNP
-Kata pour qualif BNP
+Kata for BNP validation
 
-Outils/technos : Kubernetes-Helm / PostgreSQL / Maven (Spring boot 3.0 - Java 17).
+Tools/technos : Kubernetes-Helm / PostgreSQL / Maven (Spring boot 3.0 - Java 17).
 
-- Création d'un dockerfile backend avec mécanisme de build
-- Exposition de l'app à l'aide d'un reverse proxy (ingress nginx)
-- Utilisation d'un multistage pour l'exposition du jar obtenu dans un container
-- Démarrage de l'appli 3-tier (front, back, bdd postgres) à l'aide de kubectl ou helm.
+- Creating a dockerfile for backend (with a build mechanism)
+- Using multistaging to expose the resulting jar in the container
+- Exposing the app using a reverse proxy (ingress nginx)
+- Starting the 3-tier app (front, back, db postgres) using kubectl or helm.
+
+# Commands used
+1- mvn archetype:generate -DgroupId=com.MehdiSKH -DartifactId=my-app-backend -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
