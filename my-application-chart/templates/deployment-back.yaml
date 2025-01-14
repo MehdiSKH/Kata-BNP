@@ -15,7 +15,8 @@ spec:
     spec:
       containers:
       - name: back
-        image: mehdiskh/my-application/back:1.0
+        image: {{ .Values.image.back.repository }}:{{ .Values.image.back.tag }}
+        imagePullPolicy: {{ .Values.image.back.pullPolicy }}
         ports:
         - containerPort: 8080
         env:
