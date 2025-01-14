@@ -14,7 +14,7 @@ jobs:
     - name: Set up Helm
       uses: azure/setup-helm@v1
       with:
-        helm-version: v3.9.0  # Version de Helm (remplace si nécessaire)
+        helm-version: v3.16.4
 
     - name: Set up Kubernetes context
       run: |
