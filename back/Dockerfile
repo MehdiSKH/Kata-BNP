@@ -5,6 +5,8 @@ WORKDIR /app
 # Copy the Maven pom.xml and the source code
 COPY pom.xml .
 COPY src ./src
+# Verifying Java Version
+RUN java -version
 # Build the app (JAR file)
 RUN mvn clean package -DskipTests
 
