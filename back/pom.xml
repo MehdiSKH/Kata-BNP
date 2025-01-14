@@ -33,6 +33,12 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <mainClass>com.example.BackApplication</mainClass>
+                        </manifest>
+                    </archive>
                     <source>17</source>
                     <target>17</target>
                 </configuration>
