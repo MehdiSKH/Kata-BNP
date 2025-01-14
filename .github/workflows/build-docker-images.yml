@@ -14,10 +14,10 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Build Docker image for back
-      run: docker build -t mehdiskh/my-application/back:1.0 ./back
+      run: docker build -t mehdiskh/my-application-back:1.0 ./back
 
     - name: Build Docker image for front
-      run: docker build -t mehdiskh/my-application/front:1.0 ./front
+      run: docker build -t mehdiskh/my-application-front:1.0 ./front
 
     - name: Push Docker images to Docker Hub
       env:
