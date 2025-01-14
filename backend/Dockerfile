@@ -3,8 +3,8 @@ FROM maven:3.8.5-openjdk-17 AS build
 # Set the working directory
 WORKDIR /app
 # Copy the Maven pom.xml and the source code
-COPY pom.xml ./
-COPY src ./src
+COPY my-app-backend/pom.xml ./
+COPY my-app-backend/src ./src
 # Build the app (JAR file)
 RUN mvn clean install -DskipTests
 
