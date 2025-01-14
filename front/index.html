@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Front</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    input, button { padding: 10px; margin: 5px; }
+  </style>
+</head>
+<body>
+  <h1>Test API Back</h1>
+  <div>
+    <label for="userId">Enter User ID:</label>
+    <input type="number" id="userId" placeholder="1">
+    <button onclick="getUser()">Get User</button>
+  </div>
+  <pre id="output"></pre>
+
+  <script>
+    const backUrl = "http://localhost:8080/api/users"; // Remplace par l'URL de ton back
+
+    async function getUser() {
+      const userId = document.getElementById('userId').value;
+      const output = document.getElementById('output');
+      output.textContent = "Loading...";
+
+      try {
+        const response = await fetch(`${backUrl}/${userId}`);
+        if (!response.ok) throw new Error(`Error: ${response.status}`);
+        const data = await response.json();
+        output.textContent = JSON.stringify(data, null, 2);
+      } catch (error) {
+        output.textContent = error.toString();
+      }
+    }
+  </script>
+</body>
+</html>
+

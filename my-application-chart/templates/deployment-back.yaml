@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: back
+  namespace: my-application
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: back
+  template:
+    metadata:
+      labels:
+        app: back
+    spec:
+      containers:
+      - name: back
+        image: {{ .Values.image.back.repository }}:{{ .Values.image.back.tag }}
+        imagePullPolicy: {{ .Values.image.back.pullPolicy }}
+        ports:
+        - containerPort: 8080
+        env:
+        - name: SPRING_POSTGRES_USERNAME
+          value: {{ .Values.postgres.username }}
+        - name: SPRING_POSTGRES_PASSWORD
+          value: {{ .Values.postgres.password }}
+        - name: SPRING_POSTGRES_URL
+          value: {{ .Values.postgres.url }}

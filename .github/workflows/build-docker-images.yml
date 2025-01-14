@@ -1,0 +1,29 @@
+name: Build Docker Images
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-docker-images:
+    runs-on: self-hosted
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Build Docker image for back
+      run: docker build -t mehdiskh/my-application/back:1.0 ./back
+
+    - name: Build Docker image for front
+      run: docker build -t mehdiskh/my-application/front:1.0 ./front
+
+    - name: Push Docker images to Docker Hub
+      env:
+        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      run: |
+        echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
+        docker push mehdiskh/my-application/back:1.0
+        docker push mehdiskh/my-application/front:1.0

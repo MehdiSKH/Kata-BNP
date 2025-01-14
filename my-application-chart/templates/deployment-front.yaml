@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: front
+  namespace: my-application
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: front
+  template:
+    metadata:
+      labels:
+        app: front
+    spec:
+      containers:
+      - name: front
+        image: {{ .Values.image.front.repository }}:{{ .Values.image.front.tag }}
+        imagePullPolicy: {{ .Values.image.front.pullPolicy }}
+        ports:
+        - containerPort: 80
