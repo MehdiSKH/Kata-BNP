@@ -7,6 +7,3 @@ Tools/technos : Kubernetes-Helm / PostgreSQL / Maven (Spring boot 3.0 - Java 17)
 - Using multistaging to expose the resulting jar in the container
 - Exposing the app using a reverse proxy (ingress nginx)
 - Starting the 3-tier app (front, back, db postgres) using kubectl or helm.
-
-# Commands used
-1- mvn archetype:generate -DgroupId=com.MehdiSKH -DartifactId=my-app-backend -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
