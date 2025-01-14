@@ -2,18 +2,13 @@ replicaCount: 2
 
 image:
   front:
-    repository: mehdiskh/my-application/front
+    repository: mehdiskh/my-application-front
     tag: 1.0
     pullPolicy: IfNotPresent
   back:
-    repository: mehdiskh/my-application/back
+    repository: mehdiskh/my-application-back
     tag: 1.0
     pullPolicy: IfNotPresent
-
-postgres:
-  username: myapplication
-  password: M3P@ssw0rd!
-  url: jdbc:postgresql://my-db-test.io:5432/mydb
 
 ingress:
   enabled: true

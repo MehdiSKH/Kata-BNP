@@ -26,10 +26,10 @@ jobs:
       run: |
         helm upgrade --install my-application ./my-application-chart \
           --namespace my-application \
-          --set image.front.repository=${{ secrets.FRONT_IMAGE_REPO }} \
-          --set image.front.tag=${{ secrets.FRONT_IMAGE_TAG }} \
-          --set image.back.repository=${{ secrets.BACK_IMAGE_REPO }} \
-          --set image.back.tag=${{ secrets.BACK_IMAGE_TAG }} \
+          --set image.front.repository=mehdiskh/my-application-front \
+          --set image.front.tag=1.0 \
+          --set image.back.repository=mehdiskh/my-application-back \
+          --set image.back.tag=1.0 \
           --set postgres.username=${{ secrets.POSTGRES_USERNAME }} \
           --set postgres.password=${{ secrets.POSTGRES_PASSWORD }} \
           --set postgres.url=${{ secrets.POSTGRES_URL }} \

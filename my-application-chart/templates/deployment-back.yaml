@@ -4,7 +4,7 @@ metadata:
   name: back
   namespace: my-application
 spec:
-  replicas: {{ .Values.replicaCount }}
+  replicas: 2
   selector:
     matchLabels:
       app: back
@@ -15,14 +15,19 @@ spec:
     spec:
       containers:
       - name: back
-        image: {{ .Values.image.back.repository }}:{{ .Values.image.back.tag }}
-        imagePullPolicy: {{ .Values.image.back.pullPolicy }}
+        image: mehdiskh/my-application/back:1.0
         ports:
         - containerPort: 8080
         env:
         - name: SPRING_POSTGRES_USERNAME
-          value: {{ .Values.postgres.username }}
+          valueFrom:
+            secretKeyRef:
+              name: postgres-credentials
+              key: SPRING_POSTGRES_USERNAME
         - name: SPRING_POSTGRES_PASSWORD
-          value: {{ .Values.postgres.password }}
+          valueFrom:
+            secretKeyRef:
+              name: postgres-credentials
+              key: SPRING_POSTGRES_PASSWORD
         - name: SPRING_POSTGRES_URL
-          value: {{ .Values.postgres.url }}
+          value: "jdbc:postgresql://my-postgresql.my-application.svc.cluster.local:5432/mydb"
