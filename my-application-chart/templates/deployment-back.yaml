@@ -35,4 +35,7 @@ spec:
               secretKeyRef:
                 name: postgres-credentials
                 key: SPRING_POSTGRES_PASSWORD
-
+      hostAliases:
+        - ip: "217.182.211.190"
+          hostnames:
+            - "my-db-test.io"
