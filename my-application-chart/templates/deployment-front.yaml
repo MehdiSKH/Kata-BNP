@@ -4,7 +4,7 @@ metadata:
   name: front
   namespace: my-application
 spec:
-  replicas: {{ .Values.replicaCount }}
+  replicas: {{ .Values.replicaCountFront }}
   selector:
     matchLabels:
       app: front
