@@ -18,7 +18,7 @@ jobs:
     - name: Set up Kubernetes context
       run: |
         kubectl config set-cluster my-cluster --server=https://192.168.49.2:8443 --insecure-skip-tls-verify=true
-        kubectl config set-credentials my-user --token="eyJhbGciOiJSUzI1NiIsImtpZCI6InNkOExBS0d2NEc0cUZqY2VZaUFKZ0lCV0p1RUQzMzN0UkdzWVlGOUtmZWsifQ.eyJhdWQiOlsiaHR0cHM6Ly9rdWJlcm5ldGVzLmRlZmF1bHQuc3ZjLmNsdXN0ZXIubG9jYWwiXSwiZXhwIjoxNzM2ODgyODE3LCJpYXQiOjE3MzY4NzkyMTcsImlzcyI6Imh0dHBzOi8va3ViZXJuZXRlcy5kZWZhdWx0LnN2Yy5jbHVzdGVyLmxvY2FsIiwianRpIjoiZTJhMDM1MjQtMjlkMS00NWQzLTk1OWItZWU0MTZjYzUxZWJmIiwia3ViZXJuZXRlcy5pbyI6eyJuYW1lc3BhY2UiOiJkZWZhdWx0Iiwic2VydmljZWFjY291bnQiOnsibmFtZSI6Im15LXVzZXIiLCJ1aWQiOiIyMDQ4MmYxOC1mZWZkLTRlY2EtYjcxYi0xNTJkYWYzYmE1OTYifX0sIm5iZiI6MTczNjg3OTIxNywic3ViIjoic3lzdGVtOnNlcnZpY2VhY2NvdW50OmRlZmF1bHQ6bXktdXNlciJ9.AoM6xtV1TCpOwDoxV8o8cc8qSn74zobFo1CPKiIoIvXqMDex9P0BizWRUSkcSmHzRCDWpqSebWeQEfKsM4TwiCxp-NL7Gc5jteIBqgkg4r50iISOLmVQpyECkG5i2GCFbEK5AHOsYGDo4XGlYiNpGoKhBvy0uCfNDE6Wki9CW--ooqIFjWEBLDPa70Fm6ghHdKIrQKOxE9244O9yCiLL4pxeo6uhLJJpfX520r0LT6ies6Cr9_K55dkFhcKFH18w9OKcKXHQsFSC5lwbF_0hXY1fK3fJgwbyDNzRUgB0TbPJoOg-u_BI9g8FS1dt1_ZDCaiBOMiTnoquURBNWhDRlw"
+        kubectl config set-credentials my-user --token=${{ secrets.TOKEN_KUBE }}
         kubectl config set-context my-cluster-context --cluster=my-cluster --user=my-user --namespace=my-application
         kubectl config use-context my-cluster-context
 
