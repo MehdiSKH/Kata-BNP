@@ -31,4 +31,4 @@ spec:
               name: postgres-credentials
               key: SPRING_POSTGRES_PASSWORD
         - name: SPRING_POSTGRES_URL
-          value: "jdbc:postgresql://my-postgresql.my-application.svc.cluster.local:5432/mydb"
+          value: "jdbc:postgresql://my-db-test.io:5432/mydb"
